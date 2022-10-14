@@ -1,0 +1,35 @@
+#bta_stamp {
+    position: absolute;
+    top: -64px;
+    left: 45%;
+}
+
+#bta_stamp > a > img {
+    position: absolute;
+    top:16px;
+    left:0;
+    width: 128px;
+    height: 128px
+}
+
+@media screen and (max-width: 950px) {
+    #bta_stamp {
+        position: absolute;
+        top: -30px;
+        left: 55%;
+    }
+
+    #bta_stamp > a > img {
+        position: absolute;
+        top:16px;
+        left:0;
+        width: 64px;
+        height: 64px
+    }
+}
+
+@media screen and (max-width: 360px) {
+    #bta_stamp {
+        display: none;
+    }
+}

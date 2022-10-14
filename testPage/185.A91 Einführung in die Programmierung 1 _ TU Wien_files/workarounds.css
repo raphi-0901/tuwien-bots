@@ -1,0 +1,47 @@
+/* Fix very weird bottom hr on schedules.
+ *
+ * Juri Berlanda <juri.berlanda@tuwien.ac.at>, 2017-05-24
+ */
+.fc-time-grid-container {
+    height: initial !important;
+}
+
+/* Fix weird margins in p:message
+ *
+ * Juri Berlanda <juri.berlanda@tuwien.ac.at>, 2017-07-11
+ */
+div.ui-messages > div > ul > li {
+    margin: 0;
+}
+
+/* Fix weird scrollbar on Firfox.
+ *
+ * See Redmine #36709 for further details.
+ *
+ * Juri Berlanda <juri.berlanda@tuwien.ac.at>, 2018-10-08
+ */
+.fc-time-grid-container {
+    overflow: initial !important;
+}
+
+/* Fix tooltip icon inside labels.
+ *
+ * At the time of writing, labels are 20px high, tooltip icons only 16px. This looks weird.
+ *
+ * Juri Berlanda <juri.berlanda@tuwien.ac.at>, 2020-04-07
+ */
+label > .tissTooltip > .tooltipIcon {
+    margin-bottom: -2px;
+}
+
+/* Fix #64512: Select overflows on mobile.
+ *
+ * At the time of writing, select has a max-width of 350px (from content.css) - to much for mobiles.
+ *
+ * Juri Berlanda <juri.berlanda@tuwien.ac.at>, 2020-10-07
+ */
+@media only screen and (max-width: 949px) {
+    select {
+        max-width: 320px;
+    }
+}

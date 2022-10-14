@@ -1,0 +1,108 @@
+/* toggleList */
+
+.toggleList {
+    margin: .5em 0;
+}
+
+.toggleList li ul li {
+    margin: 0em;
+    padding: 0;
+}
+
+.toggleList li ul li.right {
+    float: right !important;
+    position: relative;
+    *top: -1.5em;
+}
+
+.toggleList li ul li.right a {
+    padding: 0 .5em;
+}
+
+ul.toggleList ul li {
+    border-bottom: none !important;
+    display: inline-block;
+    *display: inline;
+}
+
+.toggleAll ul li, .toggleAll ul {
+    display: block !important;
+}
+
+.toggleAll {
+    border-bottom: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* from groups.css */
+
+.groupWrapper {
+    border-bottom: 1px solid #D8D8D8;
+    border-top: none;   
+    margin: 0px;
+    padding: 1px 0 1px 10px;
+    background: #FAFAFA;
+}
+
+.groupWrapper label {
+    text-align: left !important;    
+}
+
+.groupWrapper fieldset li {
+    margin: 3px 0;    
+}
+
+.groupHeaderWrapper {
+    margin-top: 0px;
+    padding-bottom: 7px;
+    padding-top: 10px;
+    cursor: pointer;
+}
+
+.groupWrapper fieldset {
+    border: 0px;
+    margin: 0px !important;
+    padding-top: 0px;
+    padding-bottom: 0px;   
+    background: #FAFAFA;
+}
+
+.groupHeadertrigger {
+    background: url("/static/2.6.3/global/images/lehre/arrow.png") no-repeat center left;
+    top: -36px;
+}
+
+.accordion_open {
+    background: url("/static/2.6.3/global/images/lehre/arrow_down.png") no-repeat center left;
+}
+
+.toggleAll {
+    margin: 0 0 5px !important;
+    padding: 0px !important;
+    border-bottom: 1px solid #D8D8D8;
+    overflow: hidden;
+    font-size: 1em;
+}
+
+.header_element {
+    float: left;
+    margin-right: 10px;
+}
+
+.rightLink {
+    float: right;
+}
+
+.listAction {
+    float: right;
+    padding: 0 0.5em;
+}
+
+.titleCol {
+    padding-left: 16px;
+}
+
+.sa, .ca {
+    margin-right: 15px;
+}

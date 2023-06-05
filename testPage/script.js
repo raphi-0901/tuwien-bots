@@ -1,7 +1,8 @@
 // run document.querySelectorAll(".groupWrapper") in console and put the desired number here
-const WANTED_GROUP = 8;
-const COURSE_NUMBER = "185.A91";
-const TIME_OF_REGISTRATION = new Date("2023-03-06 15:00:00");
+const WANTED_GROUP = 1;
+const WANTED_DROPDOWN = 2;
+const COURSE_NUMBER = "185.A92";
+console.log(TIME_OF_REGISTRATION);
 const TIME_OF_LOAD = new Date();
 const RELOAD_TIMER_TO_KEEP_SESSION = 15;
 
@@ -32,7 +33,8 @@ if (courseNumberFromURL === COURSE_NUMBER.replace(/\./g, "")) {
         register();
       }
     } else {
-      setInterval(checkTime, 1000);
+      setInterval(checkTime, 100);
+      setInterval(needToReload, 1000);
     }
   }
 }
@@ -44,6 +46,16 @@ if (
   currentURL.endsWith("/education/course/examDateList.xhtml")
 ) {
   if (sessionStorage.getItem("wantsToRegister") == 1) {
+    if (WANTED_DROPDOWN !== -1) {
+      const select = document.querySelector("select");
+      if (select !== null) {
+        const option = select.querySelector(
+          `option:nth-child(${WANTED_DROPDOWN})`
+        );
+        select.value = option.value;
+      }
+    }
+
     const submitButton = document.querySelector("input");
     submitButton.click();
     sessionStorage.removeItem("wantsToRegister");
@@ -55,25 +67,25 @@ function checkTime() {
     sessionStorage.setItem("alreadyReloaded", 1);
     location.reload();
   } else {
-    console.log(
-      new Intl.RelativeTimeFormat("de-DE").format(
-        Math.round((TIME_OF_REGISTRATION - new Date()) / 1000),
-        "second"
-      )
-    );
     sessionStorage.setItem("alreadyReloaded", 0);
-
-    if (needToReload()) {
-      location.reload();
-    }
   }
 }
 
 function needToReload() {
+  console.log(
+    new Intl.RelativeTimeFormat("de-DE").format(
+      Math.round((TIME_OF_REGISTRATION - new Date()) / 1000),
+      "second"
+    )
+  );
+
   const timeToReload = new Date(TIME_OF_LOAD).setMinutes(
     TIME_OF_LOAD.getMinutes() + RELOAD_TIMER_TO_KEEP_SESSION
   );
-  return new Date() > timeToReload;
+
+  if (new Date() > timeToReload) {
+    location.reload();
+  }
 }
 
 function register() {

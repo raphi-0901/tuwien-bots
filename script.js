@@ -1,8 +1,9 @@
 // run document.querySelectorAll(".groupWrapper") in console and put the desired number here
-const WANTED_GROUP = 1;
-const WANTED_DROPDOWN = 2;
-const COURSE_NUMBER = "185.A92";
-console.log(TIME_OF_REGISTRATION);
+const WANTED_GROUP = 139;
+const WANTED_DROPDOWN = -1;
+const COURSE_NUMBER = "194.023";
+const TIME_OF_REGISTRATION = new Date("2023-09-18 10:00:03");
+console.log(TIME_OF_REGISTRATION)
 const TIME_OF_LOAD = new Date();
 const RELOAD_TIMER_TO_KEEP_SESSION = 15;
 
@@ -24,8 +25,7 @@ if (courseNumberFromURL === COURSE_NUMBER.replace(/\./g, "")) {
     if (new Date() > TIME_OF_REGISTRATION) {
       // Registrierung ist offen
       if (
-        sessionStorage.getItem("alreadyReloaded") == 1 &&
-        [...document.querySelectorAll(".groupWrapper")].length
+        sessionStorage.getItem("alreadyReloaded") == 1 && [...document.querySelectorAll(".groupWrapper")].length
       ) {
         // reset to 0, so it does not end in a loop after reloading
         sessionStorage.removeItem("alreadyReloaded");
@@ -49,9 +49,7 @@ if (
     if (WANTED_DROPDOWN !== -1) {
       const select = document.querySelector("select");
       if (select !== null) {
-        const option = select.querySelector(
-          `option:nth-child(${WANTED_DROPDOWN})`
-        );
+        const option = select.querySelector(`option:nth-child(${WANTED_DROPDOWN})`);
         select.value = option.value;
       }
     }
